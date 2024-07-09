@@ -14,7 +14,5 @@ export class UsersService {
     // Implement findUsers logic
   }
 
-  createUsers() {
-    // Implement createUsers logic
-  }
+  createUsers() {}
 }
