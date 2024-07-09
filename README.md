@@ -9,3 +9,5 @@ nest g module users
 nest g controller /users/controllers/users
 
 nest g service /users/services/users
+
+yarn run start:dev
