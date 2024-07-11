@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TodoModule } from './todos/todo.module';
-import { User } from './typeorm/User';
 import { UsersModule } from './users/users.module';
-
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -15,7 +14,8 @@ import { UsersModule } from './users/users.module';
       username: 'root',
       password: '',
       database: 'nestjs',
-      entities: [User],
+      // entities: [Todo],
+      entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
     }),
     UsersModule,
