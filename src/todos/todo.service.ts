@@ -19,6 +19,14 @@ export class TodoService {
     return await this.todoRepository.find();
   }
 
+  async findById(id: number) {
+    const todo = this.todoRepository.findOne({ where: { id } });
+    if (!todo) {
+      throw new Error('Todo not found');
+    }
+    return await todo;
+  }
+
   async update(id: number, dto: CreateTodoDto) {
     const todo = await this.todoRepository.findOne({ where: { id } });
 

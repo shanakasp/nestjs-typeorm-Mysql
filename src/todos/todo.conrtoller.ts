@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -22,6 +23,11 @@ export class TodoController {
   @Get()
   findMany() {
     return this.todoService.findAll();
+  }
+
+  @Get(':id')
+  findById(@Param('id', ParseIntPipe) id: number) {
+    return this.todoService.findById(id);
   }
 
   @Put(':id')
