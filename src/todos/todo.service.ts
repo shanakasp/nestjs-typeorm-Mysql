@@ -18,4 +18,12 @@ export class TodoService {
   async findAll() {
     return await this.todoRepository.find();
   }
+
+  async update(id: number, dto: CreateTodoDto) {
+    const todo = await this.todoRepository.findOne({ where: { id } });
+
+    Object.assign(todo, dto);
+
+    await this.todoRepository.save(todo);
+  }
 }
