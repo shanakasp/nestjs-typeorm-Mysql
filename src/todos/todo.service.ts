@@ -24,6 +24,6 @@ export class TodoService {
 
     Object.assign(todo, dto);
 
-    await this.todoRepository.save(todo);
+    return await this.todoRepository.save(todo);
   }
 }
